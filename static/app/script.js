@@ -38,7 +38,7 @@ function buscarEmpleado() {
   }
 
   // Realizar la lectura del archivo CSV
-  fetch('encuestadores.csv')
+  fetch('../csv/encuestadores.csv')
     .then(response => response.text())
     .then(data => {
       // Parsear el contenido CSV
@@ -52,7 +52,7 @@ function buscarEmpleado() {
       const resultadoDiv = document.getElementById('resultado');
       if (empleadoEncontrado) {
         const nombreEmpleado = empleadoEncontrado[1];
-        const imagenEmpleado = empleadoEncontrado[6]; // Supongamos que la columna de imagen es la posición 6
+        const imagenEmpleado = empleadoEncontrado[7]; // Supongamos que la columna de imagen es la posición 6
 
         resultadoDiv.innerHTML = `
           <div class="empleado-encontrado">
