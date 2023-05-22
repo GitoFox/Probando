@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https://gitofox.github.io/DESUC_web_encuestadores/.
+RewriteRule \.(jpg|jpeg|png|gif)$ - [F]
+
+<Files "../csv/encuestadores.csv">
+  Order deny,allow
+  Deny from all
+</Files>
