@@ -147,9 +147,6 @@ h3 {
 }
 
 
-
-
-
 @media (max-width: 768px) {
   .nombre-completo {
     font-size: 16px;
@@ -161,4 +158,3 @@ h3 {
     font-size: 14px;
   }
 }
-

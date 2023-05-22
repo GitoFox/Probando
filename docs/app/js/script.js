@@ -49,22 +49,38 @@ function buscarEmpleado() {
       const empleadoEncontrado = empleados.find(empleado => empleado[0] === rut);
 
       // Mostrar el resultado
+      
       const resultadoDiv = document.getElementById('resultado');
+      resultadoDiv.innerHTML='';
       if (empleadoEncontrado) {
         const nombreEmpleado = empleadoEncontrado[1];
-        const imagenEmpleado = empleadoEncontrado[6]; // Supongamos que la columna de imagen es la posición 6
+        const imagenEmpleado = empleadoEncontrado[7]; // Supongamos que la columna de imagen es la posición 6
+
+      
+        const vigencia = empleadoEncontrado[6]; // Supongamos que la columna "Vigencia" es la posición 6
+        let vigenciaTexto = '';
+
+        if (vigencia === 'Si') {
+          vigenciaTexto = 'Si';
+        } else if (vigencia === 'No') {
+          vigenciaTexto = 'No vigente';
+        } else {
+          vigenciaTexto = 'Estado desconocido';
+        }
 
         resultadoDiv.innerHTML = `
-          <div class="empleado-encontrado">
+            <div class="empleado-encontrado">
             <img src="${imagenEmpleado}" alt="Imagen del empleado" class="imagen-empleado">
             <div class="info-empleado">
               <h3>Empleado encontrado:</h3>
               <h2>${nombreEmpleado} ${empleadoEncontrado[2]}</h2>
+              <h3 class="checkbox-container">
+                Vigencia: <input type="checkbox" ${vigencia === 'Si' ? 'checked' : ''}>
+                <span class="checkmark"></span>
+              </h3>
             </div>
           </div>
         `;
-
-      
 
         const proyectosEmpleado = empleados.filter(empleado => empleado[0] === rut);
         const currentDate = new Date();
